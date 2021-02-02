@@ -1,41 +1,45 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../logo.svg';
 import styled from 'styled-components';
+import logo from '../logo.svg';
+import {ButtonContainer} from './Button';
+import './../App.css';
 
  class Navbar extends Component {
     render() {
         return (
-           <nav className ="navbar navbar-expand-sm  bg-primary navbar-dark px-sm-5">
+           < NavWrapper className ="navbar navbar-expand-sm   navbar-dark px-sm-5">
                <Link to ='/'>
                    <img src ={logo} alt="store" className="navbav-brand"/>
 
                </Link>
-               <ul className="navbar-nav align-item-center">
+               <ul className="navbar-nav align-items-center">
                    <li className="nav-item mr-5">
                        <Link to="/" className="nav-link">Product</Link>
-
-
+                       </li>
+                       </ul>
+                       
                        <Link to="/cart" className = "ml-auto">
-                           <ButtonComtainer>
-                               <span className="mr-2">  <i className="fas fa-cart-plus"/></span>
+                           <ButtonContainer>
+                               <span className="mr-2">
+                                   <i className="fas fa-cart-plus"/></span>
                              
-                              My cart
-                           </ButtonComtainer>
+                              my cart
+                           </ButtonContainer>
                        </Link>
-
-                   </li>
-
-               </ul>
-
-           </nav>
-        )
+           </ NavWrapper>
+        );
     }
 }
-const ButtonComtainer = styled.button`
-text-transfrom: capitalized;
-font-size: 1.4rem:
-background: transparent:
-border: 0.05rem solid var(--lightBlue);
+
+
+const NavWrapper = styled.nav`
+   background: var(--mainBlue) !important;
+    .nav-link {
+     color: var(--mainWhite) !important;
+     font-size: 1.3rem !important;
+     text-transform: capitalize !important;
+ }
 `;
+
 export default Navbar
