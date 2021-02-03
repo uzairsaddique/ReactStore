@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import {ProductConsumer} from '../context'
-
+import Proptype from 'prop-types'
  class Product extends Component {
     render() {
         const {id, title, img, price, inCart} = this.props.product;
@@ -10,7 +10,7 @@ import {ProductConsumer} from '../context'
             <ProductWrapper>
                <div className="col-9 mx-auto col-md-6 col-lg-3 my-3" >
                    <div className="card" style={{width: '15rem'}}>
-                       <div className="img-container "
+                       <div className="img-container"
                        onClick={()=>console.log("you are log in bro ")}>
                            <Link to="/details" >
                                <img src={img} alt="product" className="card-img-top"/>
@@ -38,6 +38,17 @@ import {ProductConsumer} from '../context'
         )
     }
 }
+// Product.propTypes = {
+//     product: Proptype.shape({
+//         id:Proptype.number,
+//         img: Proptype.string,
+//         title: Proptype.string,
+//         price: Proptype.number,
+//         inCart: Proptype.bool
+//     }).isReuired
+// };
+
+
  const ProductWrapper = styled.div`
  .card{
      border-color: transparent;
@@ -68,21 +79,26 @@ import {ProductConsumer} from '../context'
  .img-container:hover .card-img-top{
      transform :scale(1.2);
  }
- .cart-btn{
+ .cart-btn {
      position: absolute;
-     button 0 ;
-     right 0 ;
+     bottom: 30px;
+     right: 40px;
      padding: 0.2rem 0.4rem;
      background: var(--lightBlue);
-     border: none;
+     border: 1px solid ;
      color: var(--mainWhite);
      font-size: 1.4rem;
      border-radius: 0.5rem 0 0 0;
      transform: translate(100%, 100%);
      transition: all 1s linear;
  }
- .img-container:hover .cart-btn {
-     transform: traslate(0,0);
+ }
+ .img-container:ho ver .cart-btn {
+     transform: traslate(0, 0);
+ }
+ .cart-btn:hover {
+     color: var(--mainBlue);
+     coursor: pointer:
  }
  
  `;
