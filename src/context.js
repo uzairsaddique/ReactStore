@@ -15,6 +15,10 @@ const ProductContext = React.createContext();
      addToCard = () =>{
         console.log("hello from addTocard")
     }
+    tester = () =>{
+        console.log('State products :', this.state.products[0].inCart);
+        console.log('Dtae products :', storeProducts[0].inCart);
+    }
     render() {
         return (
             <ProductContext.Provider value={{

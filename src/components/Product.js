@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
 import {ProductConsumer} from '../context'
-import Proptype from 'prop-types'
+import PropTypes from 'prop-types'
  class Product extends Component {
     render() {
         const {id, title, img, price, inCart} = this.props.product;
@@ -16,7 +16,7 @@ import Proptype from 'prop-types'
                                <img src={img} alt="product" className="card-img-top"/>
                            </Link>
                            <button className="cart-btn" disabled={inCart? true: false} onClick={()=>{console.log("ADD TO CARD ")}}>
-                           {inCart ? (<p className="text-capitalize mb-0" disabled>in inCart</p>):(<i className="fas fa-cart-plus"/>)}
+                           {inCart ? (<p className="text-capitalize mb-0" disabled>in inCart</p>):( <Link to="/cart" ><i className="fas fa-cart-plus"/></Link>)}
                            </button>
                        </div>
                        <div className="card-footer d-flex justify-content-between">
@@ -38,15 +38,15 @@ import Proptype from 'prop-types'
         )
     }
 }
-// Product.propTypes = {
-//     product: Proptype.shape({
-//         id:Proptype.number,
-//         img: Proptype.string,
-//         title: Proptype.string,
-//         price: Proptype.number,
-//         inCart: Proptype.bool
-//     }).isReuired
-// };
+Product.propTypes = {
+    product: PropTypes.shape({
+        id:PropTypes.number,
+        img: PropTypes.string,
+        title: PropTypes.string,
+        price: PropTypes.number,
+        inCart: PropTypes.bool
+    }).isRequired
+};
 
 
  const ProductWrapper = styled.div`
@@ -81,7 +81,7 @@ import Proptype from 'prop-types'
  }
  .cart-btn {
      position: absolute;
-     bottom: 30px;
+     bottom: 43px;
      right: 40px;
      padding: 0.2rem 0.4rem;
      background: var(--lightBlue);
