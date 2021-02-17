@@ -10,6 +10,7 @@ const ProductContext = React.createContext();
      }
      componentDidMount(){
          this.setProducts();
+         console.log('uzair')
      }
      setProducts = () =>{
          let tempProducts = [];
@@ -21,12 +22,20 @@ const ProductContext = React.createContext();
              return {products: tempProducts};
          });
      };
-
-     handerDetails = () =>{
-         console.log("hello from detals")
+     getItem = (id) => {
+         const product = this.state.products.find(item => item.id === id);
+         return product;
      }
-     addToCard = () =>{
-        console.log("hello from addTocard")
+
+     handerDetails = (id) =>{
+         const product = this.getItem(id);
+         this.setState(()=>
+         {return{detailProduct: product}
+        })
+         
+     };
+     addToCard = (id) =>{
+        console.log(`hello from add To card.id ${id}`)
     }
     render() {
         return (

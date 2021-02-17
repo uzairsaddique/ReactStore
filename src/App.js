@@ -6,7 +6,7 @@ import Details from './components/Details';
 import Cart from './components/Cart';
 import Default from './components/Default';
 import { Route, Switch, IndexRoute, Link} from 'react-router-dom';
-import { ProductProvider } from './context';
+
 
 
  class App extends Component {

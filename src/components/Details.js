@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import styled from "styled-components"
 import {ProductConsumer} from '../context';
 import {Link} from "react-router-dom";
 import { ButtonContainer } from "./Button"
+import PropTypes from "prop-types";
 
  class Details extends Component {
     render() {
@@ -16,9 +18,42 @@ import { ButtonContainer } from "./Button"
                            text-center text-slantend text-blue my-5">
                                <h1>{title}</h1>
                            </div>
-                           </div>
-
-                       </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-10 mx-auto col-md-6 my-3">
+                                <img src={img} className="img-fluid " alt="product"/>
+                            </div>
+                            <div className="col-10 mx-auto col-md-6 my-3 text-capitalized">
+                            <h2>model: {title} </h2>
+                            <h4 className="text-title text upercase text-muted mt-3 mb-2">
+                                made by : <span className="text-uppercase">
+                                    {company}
+                                </span>
+                            </h4>
+                            <h4 className="text-blue">
+                                <strong>
+                                    price: <span>$</span>
+                                    {price}
+                                    </strong>
+                            </h4>
+                            <p className="text-capitalize fout-weight-bold mt-3 mb-0">
+                                some info about product
+                            </p>
+                            <p className="text-muted lead">{info}</p>
+                            <div>
+                                <Link to="/">
+                                    <ButtonContainer>
+                                        back to products
+                                    </ButtonContainer>
+                                </Link>
+                                <ButtonContainer cart disabled ={inCart? true:false}
+                                onClick = {()=>{value.addToCard(id)}}>
+                                       {inCart ? "inCart" :"add to cart" }
+                                    </ButtonContainer>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
                    ); 
                }}
 
